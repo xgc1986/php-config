@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
+use Xgc\Php\Exception\InvalidPhpConstantException;
 use Xgc\Php\PhpConstants;
 
 /**
@@ -13,27 +14,31 @@ use Xgc\Php\PhpConstants;
 class PhpConstantsTest extends TestCase
 {
 
-    /** @test */
-    public function uploadMaxFileSizeTest()
+    public function testUploadMaxFileSize()
     {
         self::assertInternalType('int', PhpConstants::uploadMaxFileSize());
     }
 
-    /** @test */
-    public function uploadMaxPostSizeTest()
+    public function testUploadMaxPostSize()
     {
         self::assertInternalType('int', PhpConstants::postMaxSize());
     }
 
-    /** @test */
-    public function parseSizeTest()
+    public function testParseSize()
     {
         self::assertSame(123, PhpConstants::parseSize('123'));
     }
 
-    /** @test */
-    public function parseSizeWithUnitsTest()
+    public function testParseSizeWithUnits()
     {
         self::assertSame(1024, PhpConstants::parseSize('1k'));
+    }
+
+    /**
+     * @expectedException \Xgc\Php\Exception\InvalidPhpConstantException
+     */
+    public function testInvalidPhpConstant()
+    {
+        PhpConstants::load('constant does not exist');
     }
 }

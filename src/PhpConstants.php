@@ -3,19 +3,27 @@ declare(strict_types=1);
 
 namespace Xgc\Php;
 
+use Xgc\Php\Exception\InvalidPhpConstantException;
+
 /**
  * Class Php
  * @package Xgc\Php
  */
 class PhpConstants
 {
+    // requests
+    const UPLOAD_MAX_FILESIZE = 'upload_max_filesize';
+    const POST_MAX_SIZE       = 'post_max_size';
+
     /**
      * @return int
+     *
+     * @throws InvalidPhpConstantException
      */
     public static function uploadMaxFileSize(): int
     {
         $postMaxSize   = self::postMaxSize();
-        $uploadMaxSize = self::parseSize(self::load('upload_max_filesize'));
+        $uploadMaxSize = self::parseSize(self::load(self::UPLOAD_MAX_FILESIZE));
 
         return \min($postMaxSize, $uploadMaxSize);
     }
@@ -24,20 +32,30 @@ class PhpConstants
      * returns max post size in bytes
      *
      * @return int
+     *
+     * @throws InvalidPhpConstantException
      */
     public static function postMaxSize(): int
     {
-        return self::parseSize(self::load('post_max_size'));
+        return self::parseSize(self::load(self::POST_MAX_SIZE));
     }
 
     /**
      * @param string $key
      *
      * @return string
+     *
+     * @throws InvalidPhpConstantException
      */
     public static function load(string $key): string
     {
-        return \ini_get($key);
+        $ret = \ini_get($key);
+
+        if ($ret === false) {
+            throw new InvalidPhpConstantException($key);
+        }
+
+        return $ret;
     }
 
     /**
