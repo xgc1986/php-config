@@ -1,0 +1,35 @@
+{
+  "name": "xgc/symfony-helpers",
+  "license": "",
+  "description": "my awesome project must have an awesome description",
+  "config": {
+    "bin-dir": "bin"
+  },
+  "autoload": {
+    "psr-4": {
+      "Xgc\\Php\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    },
+    "files": [
+      "vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php"
+    ]
+  },
+  "require": {
+    "php": ">=7.1"
+  },
+  "require-dev": {
+    "bruli/php-git-hooks": "~5.1"
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "PhpGitHooks\\Infrastructure\\Composer\\ConfiguratorScript::buildConfig"
+    ],
+    "post-update-cmd": [
+      "PhpGitHooks\\Infrastructure\\Composer\\ConfiguratorScript::buildConfig"
+    ]
+  }
+}
