@@ -23,7 +23,7 @@ echo Config::uploadMaxFileSize();
 // 2097152
 
 /*
- * Return the maximum post size
+ * Return the maximum post size in bytes
  */
 echo Config::postMaxSize();
 // 8388608
