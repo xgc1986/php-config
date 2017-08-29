@@ -1,7 +1,19 @@
 {
-  "name": "xgc/symfony-helpers",
-  "license": "",
-  "description": "my awesome project must have an awesome description",
+  "name": "xgc/php-config",
+  "license": "MIT",
+  "description": "A quick access to php.ini values",
+  "keywords": [
+    "php",
+    "php.ini"
+  ],
+  "authors": [
+    {
+      "email": "xgc1986@gmail.com",
+      "name": "Javier González Cuadrado"
+    }
+  ],
+  "type": "library",
+  "minimum-stability": "stable",
   "config": {
     "bin-dir": "bin"
   },
