@@ -1,19 +1,19 @@
 <?php
 declare(strict_types=1);
 
-namespace Xgc\Php\Exception;
+namespace Xgc\PhpConfig\Exception;
 
 use RuntimeException;
 
 /**
- * Class InvalidPhpConstantException
- * @package Xgc\Php\Exception
+ * Class InvalidPhpConfigException
+ * @package Xgc\PhpConfig\Exception
  */
-class InvalidPhpConstantException extends RuntimeException
+class InvalidPhpConfigException extends RuntimeException
 {
 
     /**
-     * InvalidPhpConstantException constructor.
+     * InvalidPhpConfigException constructor.
      *
      * @param string $key
      */

@@ -7,7 +7,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Xgc\\Php\\": "src/"
+      "Xgc\\PhpConfig\\": "src/"
     }
   },
   "autoload-dev": {
@@ -19,10 +19,12 @@
     ]
   },
   "require": {
-    "php": ">=7.1"
+    "php": ">=7.1",
+    "fzaninotto/faker": "^1.7"
   },
   "require-dev": {
-    "bruli/php-git-hooks": "~5.1"
+    "bruli/php-git-hooks": "~5.1",
+    "phpunit/phpunit": "~6.2"
   },
   "scripts": {
     "post-install-cmd": [

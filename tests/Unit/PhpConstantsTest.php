@@ -3,9 +3,8 @@ declare(strict_types=1);
 
 namespace Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
-use Xgc\Php\Exception\InvalidPhpConstantException;
-use Xgc\Php\PhpConstants;
+use Xgc\PhpConfig\Config;
+use Xgc\PhpConfig\Test\TestCase;
 
 /**
  * Class PhpConstantsTest
@@ -16,29 +15,31 @@ class PhpConstantsTest extends TestCase
 
     public function testUploadMaxFileSize()
     {
-        self::assertInternalType('int', PhpConstants::uploadMaxFileSize());
+        self::assertInternalType('int', Config::uploadMaxFileSize());
     }
 
     public function testUploadMaxPostSize()
     {
-        self::assertInternalType('int', PhpConstants::postMaxSize());
+        self::assertInternalType('int', Config::postMaxSize());
     }
 
     public function testParseSize()
     {
-        self::assertSame(123, PhpConstants::parseSize('123'));
+        $number   = self::faker()->numerify();
+        $expected = (int)$number;
+        self::assertSame($expected, Config::parseSize($number));
     }
 
     public function testParseSizeWithUnits()
     {
-        self::assertSame(1024, PhpConstants::parseSize('1k'));
+        self::assertSame(1024, Config::parseSize('1k'));
     }
 
     /**
-     * @expectedException \Xgc\Php\Exception\InvalidPhpConstantException
+     * @expectedException \Xgc\PhpConfig\Exception\InvalidPhpConfigException
      */
     public function testInvalidPhpConstant()
     {
-        PhpConstants::load('constant does not exist');
+        Config::load(self::faker()->word);
     }
 }

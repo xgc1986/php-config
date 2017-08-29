@@ -1,15 +1,15 @@
 <?php
 declare(strict_types=1);
 
-namespace Xgc\Php;
+namespace Xgc\PhpConfig;
 
-use Xgc\Php\Exception\InvalidPhpConstantException;
+use Xgc\PhpConfig\Exception\InvalidPhpConfigException;
 
 /**
- * Class Php
- * @package Xgc\Php
+ * Class Config
+ * @package Xgc\PhpConfig
  */
-class PhpConstants
+class Config
 {
     // requests
     const UPLOAD_MAX_FILESIZE = 'upload_max_filesize';
@@ -18,7 +18,7 @@ class PhpConstants
     /**
      * @return int
      *
-     * @throws InvalidPhpConstantException
+     * @throws InvalidPhpConfigException
      */
     public static function uploadMaxFileSize(): int
     {
@@ -33,7 +33,7 @@ class PhpConstants
      *
      * @return int
      *
-     * @throws InvalidPhpConstantException
+     * @throws InvalidPhpConfigException
      */
     public static function postMaxSize(): int
     {
@@ -45,14 +45,14 @@ class PhpConstants
      *
      * @return string
      *
-     * @throws InvalidPhpConstantException
+     * @throws InvalidPhpConfigException
      */
     public static function load(string $key): string
     {
         $ret = \ini_get($key);
 
         if ($ret === false) {
-            throw new InvalidPhpConstantException($key);
+            throw new InvalidPhpConfigException($key);
         }
 
         return $ret;
