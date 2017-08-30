@@ -1,3 +1,6 @@
+[![Latest Stable Version](https://poser.pugx.org/xgc/php-config/v/stable)](https://packagist.org/packages/xgc/php-config)
+[![License](https://poser.pugx.org/xgc/php-config/license)](https://packagist.org/packages/xgc/php-config)
+
 # Php Config
 
 A quick access to php.ini values
