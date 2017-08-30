@@ -45,5 +45,14 @@
     "post-update-cmd": [
       "PhpGitHooks\\Infrastructure\\Composer\\ConfiguratorScript::buildConfig"
     ]
+  },
+  "archive": {
+    "exclude": [
+      "!vendor",
+      "tests",
+      "*phpunit.xml",
+      ".travis.yml",
+      "php-git-hooks.yml"
+    ]
   }
 }
