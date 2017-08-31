@@ -1,5 +1,6 @@
 [![Latest Stable Version](https://poser.pugx.org/xgc/php-config/v/stable)](https://packagist.org/packages/xgc/php-config)
 [![License](https://poser.pugx.org/xgc/php-config/license)](https://packagist.org/packages/xgc/php-config)
+[![Build Status](https://travis-ci.org/xgc1986/php-config.svg?branch=master)](https://travis-ci.org/xgc1986/php-config)
 
 # Php Config
 
