@@ -1,6 +1,8 @@
 [![Latest Stable Version](https://poser.pugx.org/xgc/php-config/v/stable)](https://packagist.org/packages/xgc/php-config)
 [![License](https://poser.pugx.org/xgc/php-config/license)](https://packagist.org/packages/xgc/php-config)
 [![Build Status](https://travis-ci.org/xgc1986/php-config.svg?branch=master)](https://travis-ci.org/xgc1986/php-config)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/xgc1986/php-config/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/xgc1986/php-config/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/xgc1986/php-config/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/xgc1986/php-config/?branch=master)
 
 # Php Config
 
