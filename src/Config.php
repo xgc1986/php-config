@@ -7,6 +7,7 @@ use Xgc\PhpConfig\Exception\InvalidPhpConfigException;
 
 /**
  * Class Config
+ *
  * @package Xgc\PhpConfig
  */
 class Config
@@ -25,7 +26,7 @@ class Config
         $postMaxSize   = self::postMaxSize();
         $uploadMaxSize = self::parseSize(self::load(self::UPLOAD_MAX_FILESIZE));
 
-        return \min($postMaxSize, $uploadMaxSize);
+        return (int)\min($postMaxSize, $uploadMaxSize);
     }
 
     /**
@@ -66,12 +67,12 @@ class Config
     public static function parseSize(string $size): int
     {
         $unit = \preg_replace('/[^bkmgtpezy]/i', '', \strtolower($size));
-        $size = \preg_replace('/[^0-9.]/', '', $size);
+        $memory = (float)\preg_replace('/[^0-9.]/', '', $size);
 
         if ($unit) {
-            $ret = \round($size * (1024 ** \stripos('bkmgtpezy', $unit[0])));
+            $ret = \round($memory * (1024 ** \stripos('bkmgtpezy', $unit[0])));
         } else {
-            $ret = \round($size);
+            $ret = \round($memory);
         }
 
         return (int)$ret;
